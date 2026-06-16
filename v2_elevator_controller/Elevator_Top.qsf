@@ -1,0 +1,73 @@
+## Quartus II Pin Assignment File
+## 基于FPGA的电梯控制器设计 (DE2实验板 Cyclone II EP2C35F672C6)
+
+## 工程设置
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY Elevator_Top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "2024/01/01"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.0.1
+
+## 时钟输入 (50MHz)
+set_location_assignment PIN_12 -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+
+## 复位信号 (低电平有效)
+set_location_assignment PIN_50 -to rst_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rst_n
+
+## 按键输入 (GPIO_0-GPIO_7)
+set_location_assignment PIN_21 -to key_raw[0]
+set_location_assignment PIN_22 -to key_raw[1]
+set_location_assignment PIN_23 -to key_raw[2]
+set_location_assignment PIN_24 -to key_raw[3]
+set_location_assignment PIN_25 -to key_raw[4]
+set_location_assignment PIN_26 -to key_raw[5]
+set_location_assignment PIN_27 -to key_raw[6]
+set_location_assignment PIN_28 -to key_raw[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to key_raw[*]
+
+## UART 接口
+set_location_assignment PIN_29 -to uart_rx
+set_location_assignment PIN_30 -to uart_tx
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uart_rx
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uart_tx
+
+## 楼层传感器 (GPIO_22-GPIO_27)
+set_location_assignment PIN_43 -to floor_sensor[0]
+set_location_assignment PIN_44 -to floor_sensor[1]
+set_location_assignment PIN_45 -to floor_sensor[2]
+set_location_assignment PIN_46 -to floor_sensor[3]
+set_location_assignment PIN_47 -to floor_sensor[4]
+set_location_assignment PIN_48 -to floor_sensor[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to floor_sensor[*]
+
+## 楼层指示 LED (GPIO_10-GPIO_15)
+set_location_assignment PIN_31 -to floor_led[0]
+set_location_assignment PIN_32 -to floor_led[1]
+set_location_assignment PIN_33 -to floor_led[2]
+set_location_assignment PIN_34 -to floor_led[3]
+set_location_assignment PIN_35 -to floor_led[4]
+set_location_assignment PIN_36 -to floor_led[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to floor_led[*]
+
+## 方向指示 LED (GPIO_16-GPIO_17)
+set_location_assignment PIN_37 -to dir_led[0]
+set_location_assignment PIN_38 -to dir_led[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dir_led[*]
+
+## 模式指示 LED (GPIO_18-GPIO_21)
+set_location_assignment PIN_39 -to mode_led[0]
+set_location_assignment PIN_40 -to mode_led[1]
+set_location_assignment PIN_41 -to mode_led[2]
+set_location_assignment PIN_42 -to mode_led[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mode_led[*]
+
+## 蜂鸣器控制 (GPIO_28)
+set_location_assignment PIN_49 -to buzzer
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to buzzer
+
+## 门状态 LED (使用板载 LED_0)
+set_location_assignment PIN_25 -to door_open
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to door_open
