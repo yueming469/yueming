@@ -70,11 +70,11 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rst_n
 set_location_assignment PIN_14 -to key_raw[0]
 set_location_assignment PIN_13 -to key_raw[1]
 set_location_assignment PIN_12 -to key_raw[2]
-set_location_assignment PIN_8  -to key_raw[3]
-set_location_assignment PIN_7  -to key_raw[4]
-set_location_assignment PIN_6  -to key_raw[5]
-set_location_assignment PIN_4  -to key_raw[6]
-set_location_assignment PIN_2  -to key_raw[7]
+set_location_assignment PIN_8 -to key_raw[3]
+set_location_assignment PIN_7 -to key_raw[4]
+set_location_assignment PIN_6 -to key_raw[5]
+set_location_assignment PIN_4 -to key_raw[6]
+set_location_assignment PIN_2 -to key_raw[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to key_raw[*]
 
 ## UART 接口 — Trex-C1 UART_RXD (RS232 接收)
@@ -91,8 +91,8 @@ set_location_assignment PIN_165 -to floor_sensor[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to floor_sensor[*]
 
 ## 楼层指示 LED (6个) — Trex-C1 LED[0]~LED[5] (板载LED，高电平亮)
-set_location_assignment PIN_50  -to floor_led[0]
-set_location_assignment PIN_11  -to floor_led[1]
+set_location_assignment PIN_50 -to floor_led[0]
+set_location_assignment PIN_11 -to floor_led[1]
 set_location_assignment PIN_228 -to floor_led[2]
 set_location_assignment PIN_193 -to floor_led[3]
 set_location_assignment PIN_170 -to floor_led[4]
@@ -101,7 +101,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to floor_led[*]
 
 ## 方向指示 LED (2个) — Trex-C1 LED[6], LED[7] (板载LED，高电平亮)
 set_location_assignment PIN_108 -to dir_led[0]
-set_location_assignment PIN_73  -to dir_led[1]
+set_location_assignment PIN_73 -to dir_led[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dir_led[*]
 
 ## 模式指示 LED (4个) — Trex-C1 JP1 扩展口 (板载LED已用完)
