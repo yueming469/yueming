@@ -21,7 +21,11 @@ module Elevator_Top(
     output buzzer,
     
     // 门状态
-    output door_open
+    output door_open,
+
+    // 数码管（未使用，置为灭灯）
+    output [7:0] seg7,       // 7段数据总线（低电平点亮）
+    output [3:0] com         // 位选控制（低电平使能）
 );
 
 // 内部连线
@@ -46,7 +50,11 @@ UART_Mode_Parse u_UART_Mode_Parse(
     .mode_update(mode_update)
 );
 
-// 3. 实例化电梯核心控制模块
+// 3. 数码管灭灯（未使用，防止浮空全亮）
+assign seg7 = 8'hFF;   // 所有段熄灭（低电平点亮）
+assign com  = 4'hF;    // 所有位关闭（低电平使能）
+
+// 4. 实例化电梯核心控制模块
 Elevator_Core u_Elevator_Core(
     .clk(clk),
     .rst_n(rst_n),

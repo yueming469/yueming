@@ -118,4 +118,28 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to buzzer
 ## 门状态 — Trex-C1 UART_TXD 引脚 (复用为GPIO输出)
 set_location_assignment PIN_204 -to door_open
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to door_open
+
+## ============================================================
+## 数码管引脚 (Trex-C1 板载 4位7段数码管，低电平有效)
+## 设计未使用数码管，需驱动为灭灯状态防止浮空全亮
+## ============================================================
+
+## 7段数据总线 (低电平点亮，高电平熄灭)
+set_location_assignment PIN_198 -to seg7[0]
+set_location_assignment PIN_197 -to seg7[1]
+set_location_assignment PIN_196 -to seg7[2]
+set_location_assignment PIN_195 -to seg7[3]
+set_location_assignment PIN_188 -to seg7[4]
+set_location_assignment PIN_187 -to seg7[5]
+set_location_assignment PIN_186 -to seg7[6]
+set_location_assignment PIN_185 -to seg7[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg7[*]
+
+## 位选控制 (低电平使能，高电平关闭)
+set_location_assignment PIN_203 -to com[0]
+set_location_assignment PIN_202 -to com[1]
+set_location_assignment PIN_201 -to com[2]
+set_location_assignment PIN_200 -to com[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to com[*]
+
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
